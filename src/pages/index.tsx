@@ -14,7 +14,7 @@ import styles from '../styles/pages/Home.module.css';
 
 
 
-export default function Home(props: HomeProps) {
+export default function Home(props) {
 
   //console.log(props)
 

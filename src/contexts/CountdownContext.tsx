@@ -65,7 +65,6 @@ export function CountdownProvider({children}: CountdownProviderProps) {
   return (
     <CountdownContext.Provider 
     value={{
-      time,
       isActive,
       hasFinished,
       minutes,
