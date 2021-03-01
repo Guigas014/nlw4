@@ -49,7 +49,7 @@ export default function Home(props) {
 }
 
 
-//Aceeso aos cookies pela camado do Next
+//Aceeso aos cookies pela camada do Next
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   // chamada api (cookie)
 

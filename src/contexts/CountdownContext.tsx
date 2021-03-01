@@ -8,8 +8,11 @@ interface CountdownContextData {
     hasFinished: boolean;
     minutes: number;
     seconds: number;
+    imageStop: string;
     startCountdown: () => void;
     resetCountdown: () => void;
+    changeStopImageWhite: () => void;
+    changeStopImageBlack: () => void;
 }
 
 interface CountdownProviderProps {
@@ -27,11 +30,12 @@ let countdownTimeout: NodeJS.Timeout;
 
 export function CountdownProvider({children}: CountdownProviderProps) {
   const { startNewChallenge } = useContext(ChallengesContext)  
-
+  
 
   const [time, setTime] = useState(0.1 * 60)
   const [isActive, setIsActive] = useState(false)
   const [hasFinished, setHasFinished] = useState(false)  
+  const [imageStop, setImageStop] = useState('/icons/leave.svg')
 
 
   const minutes = Math.floor(time / 60)
@@ -47,6 +51,15 @@ export function CountdownProvider({children}: CountdownProviderProps) {
     setHasFinished(false)
     setTime(0.1 * 60)
   }
+
+  function changeStopImageWhite() {
+    setImageStop('/icons/leave-hover.svg')
+  }
+
+  function changeStopImageBlack() {
+    setImageStop('/icons/leave.svg')
+  }
+
 
   useEffect(() => {
     if (isActive && time > 0) {
@@ -69,8 +82,11 @@ export function CountdownProvider({children}: CountdownProviderProps) {
       hasFinished,
       minutes,
       seconds,
+      imageStop,
       startCountdown,
       resetCountdown,
+      changeStopImageWhite,
+      changeStopImageBlack,
     }}
     >
       {children}

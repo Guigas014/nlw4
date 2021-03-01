@@ -65,8 +65,15 @@
 
 .countdownButtonActive {
   background: var(--white);
-  color: var(--title);
+  color: var(--text);
 }
+
+.countdownButtonActive img {
+  width: 1rem; 
+  height: 1rem;
+  background-size: cover;
+
+} 
 
 .countdownButtonActive:not([disabled]):hover {
   background: var(--red);
